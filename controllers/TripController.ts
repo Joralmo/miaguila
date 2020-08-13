@@ -10,4 +10,14 @@ export default class TripController {
             res.send({ error: error.message }).status(500);
         }
     }
+
+    async totalTripsByCity(req: Request, res: Response) {
+        try {
+            const { city } = req.params;
+            const total = await TripModel.countDocuments({ 'city.name': city });
+            res.json({ cantidad: total });
+        } catch (error) {
+            res.send({ error: error.message }).status(500);
+        }
+    }
 }
