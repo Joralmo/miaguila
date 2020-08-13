@@ -13,6 +13,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.get('/trips/total', tripController.totalTrips);
+app.get('/trips/:city', tripController.totalTripsByCity);
 
 server.start(async () => {
     try {
