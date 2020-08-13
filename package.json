@@ -1,0 +1,29 @@
+{
+  "name": "miaguila",
+  "version": "0.0.1",
+  "description": "Backend",
+  "main": "app.ts",
+  "scripts": {
+    "test": "echo \"Hola mundo\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Joralmo@github.com/Joralmo/miaguila.git"
+  },
+  "author": "JoralmoPro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joralmo/miaguila/issues"
+  },
+  "homepage": "https://github.com/Joralmo/miaguila#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.7",
+    "@types/express": "^4.17.7",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  }
+}
