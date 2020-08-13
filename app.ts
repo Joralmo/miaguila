@@ -14,6 +14,7 @@ app.get('/', (req: Request, res: Response) => {
 
 app.get('/trips/total', tripController.totalTrips);
 app.get('/trips/:city', tripController.totalTripsByCity);
+app.post('/trips', tripController.createTrip);
 
 server.start(async () => {
     try {
