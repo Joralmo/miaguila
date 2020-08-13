@@ -16,6 +16,7 @@ app.get('/trips/total', tripController.totalTrips);
 app.get('/trips/:city', tripController.totalTripsByCity);
 app.post('/trips', tripController.createTrip);
 app.put('/trips/:id', tripController.updateTrip);
+app.get('/trips', tripController.trips);
 
 server.start(async () => {
     try {
