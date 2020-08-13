@@ -30,4 +30,15 @@ export default class TripController {
             res.send({ error: error.message }).status(500);
         }
     }
+
+    async updateTrip(req: Request, res: Response) {
+        try {
+            const { id: _id } = req.params;
+            const { trip } = req.body;
+            const tripAct = await TripModel.findOneAndUpdate({ _id }, trip, { new: true });
+            res.json({ trip: tripAct });
+        } catch (error) {
+            res.send({ error: error.message }).status(500);
+        }
+    }
 }
