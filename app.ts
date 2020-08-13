@@ -1,14 +1,18 @@
 import Server from './helpers/server';
 import { Request, Response } from 'express';
 import Database from './database';
+import TripController from './controllers/TripController';
 
 const server = new Server();
 
 const { app } = server;
+const tripController = new TripController();
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Make it better :D');
 });
+
+app.get('/trips/total', tripController.totalTrips);
 
 server.start(async () => {
     try {
