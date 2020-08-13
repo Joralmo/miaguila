@@ -4,7 +4,8 @@
   "description": "Backend",
   "main": "app.ts",
   "scripts": {
-    "test": "echo \"Hola mundo\""
+    "test": "echo \"Hola mundo\"",
+    "start": "ts-node app.ts"
   },
   "repository": {
     "type": "git",
