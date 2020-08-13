@@ -1,6 +1,6 @@
 import TripModel from './../models/trip';
 import { Request, Response } from 'express';
-
+import Pagination from './../interfaces/pagination';
 export default class TripController {
     async totalTrips(req: Request, res: Response) {
         try {
@@ -37,6 +37,20 @@ export default class TripController {
             const { trip } = req.body;
             const tripAct = await TripModel.findOneAndUpdate({ _id }, trip, { new: true });
             res.json({ trip: tripAct });
+        } catch (error) {
+            res.send({ error: error.message }).status(500);
+        }
+    }
+
+    async trips(req: Request, res: Response) {
+        const pagination: Pagination = {
+            page: 1,
+            limit: 10
+        }
+        try {
+            pagination.page = Number(req.query.page) || 1;
+            const trips = await TripModel.paginate({}, pagination);
+            res.json(trips);
         } catch (error) {
             res.send({ error: error.message }).status(500);
         }
