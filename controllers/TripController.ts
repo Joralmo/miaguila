@@ -20,4 +20,14 @@ export default class TripController {
             res.send({ error: error.message }).status(500);
         }
     }
+
+    async createTrip(req: Request, res: Response) {
+        try {
+            let { trip } = req.body;
+            trip = await TripModel.create(trip);
+            res.json( { trip });
+        } catch (error) {
+            res.send({ error: error.message }).status(500);
+        }
+    }
 }
