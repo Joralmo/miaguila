@@ -1,0 +1,36 @@
+name: Merge
+
+on:
+    pull_request:
+        types:
+            - labeled
+            - ready_for_review
+            - review_request_removed
+            - review_requested
+            - synchronize
+            - unlabeled
+    pull_request_review:
+        types:
+            - dismissed
+            - submitted
+    push:
+        branches:
+            - feature/*
+            - bugfix/*
+            - hotfix/*
+jobs:
+    merge:
+        runs-on: ubuntu-latest
+        name: Proceso de Mezclar [Merge]
+        steps:
+        - uses: actions/checkout@v1
+        - name: Instalando node v12
+        uses: actions/setup-node@v1
+        with:
+            node-version: 12
+        - name: Instalando Dependencias
+        run: npm i
+        - name: Testeando Sintaxis Typescript
+        uses: icrawl/action-tsc@v1
+        - name: Corriendo tests
+        run: npm run test
