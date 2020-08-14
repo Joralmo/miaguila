@@ -5,7 +5,7 @@ export default class TripController {
     async totalTrips(req: Request, res: Response) {
         try {
             const total = await TripModel.countDocuments({});
-            res.json({ cantidad: total });
+            res.json({ quantity: total });
         } catch (error) {
             res.send({ error: error.message }).status(500);
         }
@@ -15,7 +15,8 @@ export default class TripController {
         try {
             const { city } = req.params;
             const total = await TripModel.countDocuments({ 'city.name': city });
-            res.json({ cantidad: total });
+            if (total) res.json({ quantity: total });
+            else res.status(404).json({ message: 'City not found' });
         } catch (error) {
             res.send({ error: error.message }).status(500);
         }
@@ -38,7 +39,8 @@ export default class TripController {
             const tripAct = await TripModel.findOneAndUpdate({ _id }, trip, {
                 new: true,
             });
-            res.json({ trip: tripAct });
+            if (!tripAct) res.status(404).json({ message: 'Trip not found' });
+            else res.json({ trip: tripAct });
         } catch (error) {
             res.send({ error: error.message }).status(500);
         }
@@ -61,6 +63,8 @@ export default class TripController {
     async dynamicRate(req: Request, res: Response) {
         try {
             const { lat, lng } = req.body;
+            if (!(lat && lng))
+                return res.status(400).json({ message: 'lat or lng missing' });
             const locationAct = [lng, lat];
             const radiusEarthInMiles = 3958.8;
             const kilometers = 5;
