@@ -25,7 +25,7 @@ export default class TripController {
         try {
             let { trip } = req.body;
             trip = await TripModel.create(trip);
-            res.json( { trip });
+            res.json({ trip });
         } catch (error) {
             res.send({ error: error.message }).status(500);
         }
@@ -35,7 +35,9 @@ export default class TripController {
         try {
             const { id: _id } = req.params;
             const { trip } = req.body;
-            const tripAct = await TripModel.findOneAndUpdate({ _id }, trip, { new: true });
+            const tripAct = await TripModel.findOneAndUpdate({ _id }, trip, {
+                new: true,
+            });
             res.json({ trip: tripAct });
         } catch (error) {
             res.send({ error: error.message }).status(500);
@@ -45,12 +47,45 @@ export default class TripController {
     async trips(req: Request, res: Response) {
         const pagination: Pagination = {
             page: 1,
-            limit: 10
-        }
+            limit: 10,
+        };
         try {
             pagination.page = Number(req.query.page) || 1;
             const trips = await TripModel.paginate({}, pagination);
             res.json(trips);
+        } catch (error) {
+            res.send({ error: error.message }).status(500);
+        }
+    }
+
+    async dynamicRate(req: Request, res: Response) {
+        try {
+            const { lat, lng } = req.body;
+            const locationAct = [lng, lat];
+            const radiusEarthInMiles = 3958.8;
+            const kilometers = 5;
+            const trips = await TripModel.countDocuments({
+                'start.pickup_location': {
+                    $geoWithin: {
+                        $centerSphere: [
+                            locationAct,
+                            (kilometers * 0.62137) / radiusEarthInMiles,
+                        ],
+                    },
+                },
+            });
+            const drivers = await TripModel.countDocuments({
+                driver_location: {
+                    $geoWithin: {
+                        $centerSphere: [
+                            locationAct,
+                            (kilometers * 0.62137) / radiusEarthInMiles,
+                        ],
+                    },
+                },
+            });
+            const dynamic_rate = drivers < trips ? trips / drivers : 1;
+            res.json({ dynamic_rate });
         } catch (error) {
             res.send({ error: error.message }).status(500);
         }
