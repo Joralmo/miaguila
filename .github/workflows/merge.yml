@@ -27,7 +27,7 @@ jobs:
         - name: Instalando node v12
         uses: actions/setup-node@v1
         with:
-            node-version: 12
+          node-version: 12
         - name: Instalando Dependencias
         run: npm i
         - name: Testeando Sintaxis Typescript
