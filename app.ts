@@ -2,11 +2,15 @@ import Server from './helpers/server';
 import { Request, Response } from 'express';
 import Database from './database';
 import TripController from './controllers/TripController';
+import swaggerUi from 'swagger-ui-express';
+import * as options from './swagger.json';
 
 const server = new Server();
 
 const { app } = server;
 const tripController = new TripController();
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(options));
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Make it better :D');
