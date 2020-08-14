@@ -31,6 +31,12 @@ jobs:
         node-version: 12
     - name: Instalando Dependencias
       run: npm install
+    - name: Instalando Docker
+      run: curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
+    - name: Corriendo mongo
+      run: sudo docker run --name mongo -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=example
+    - name: Corriendo seed para test
+      run: npm run seed-test
     - name: Testeando Sintaxis Typescript
       uses: icrawl/action-tsc@v1
     - name: Corriendo tests
