@@ -1,5 +1,5 @@
 import { trips } from './trips.json';
-import TripModel from './../models/trip';
+import TripModel from '../models/trip';
 import Database from '../database';
 
 (async () => {

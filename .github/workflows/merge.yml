@@ -31,10 +31,13 @@ jobs:
         node-version: 12
     - name: Instalando Dependencias
       run: npm install
-    - name: Instalando Docker
-      run: curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
     - name: Corriendo mongo
-      run: sudo docker run --name mongo -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=example -d mongo
+      uses: getong/mongo-action@v1.1
+      with:
+        mongo version: '4.2-bionic'
+        host port: 27017
+        mongo username: 'root'
+        mongo password: 'example'
     - name: Corriendo seed para test
       run: npm run seed-test
     - name: Testeando Sintaxis Typescript
