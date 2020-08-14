@@ -34,7 +34,7 @@ jobs:
     - name: Instalando Docker
       run: curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
     - name: Corriendo mongo
-      run: sudo docker run --name mongo -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=example mongo
+      run: sudo docker run --name mongo -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=example -d mongo
     - name: Corriendo seed para test
       run: npm run seed-test
     - name: Testeando Sintaxis Typescript
