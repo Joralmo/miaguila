@@ -92,6 +92,8 @@ const tripSchema = new Schema({
     },
 });
 
+tripSchema.index({ driver_location: '2dsphere' });
+tripSchema.index({ 'start.pickup_location': '2dsphere' });
 tripSchema.plugin(mongoosePaginate);
 
 export default model('trips', tripSchema);
