@@ -13,7 +13,7 @@ const tripController = new TripController();
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(options));
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('Make it better :D');
+    res.json({ message: 'Make it better :D' });
 });
 
 app.get('/trips/total', tripController.totalTrips);
@@ -36,3 +36,5 @@ server.start(async () => {
         console.log('Error al conectarse =>', error);
     }
 });
+
+export default app;
