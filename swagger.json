@@ -1,0 +1,534 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Trips API Docs",
+        "description": "Documentación de Trips API",
+        "version": "0.0.1",
+        "contact": {
+            "email": "JoralmoPro@gmail.com"
+        }
+    },
+    "host": "localhost:3000",
+    "tags": [
+        {
+            "name": "Test",
+            "description": "Para probar que el servidor ha levantado correctamente"
+        },
+        {
+            "name": "Principal",
+            "description": "Endpoints principales"
+        }
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "tags": [
+                    "Test"
+                ],
+                "summary": "Para probar el servidor",
+                "description": "Consumir para ver si el servidor está funcionando",
+                "responses": {
+                    "200": {
+                        "description": "¡Todo salió bien!"
+                    }
+                }
+            }
+        },
+        "/trips": {
+            "get": {
+                "tags": [
+                    "Principal"
+                ],
+                "summary": "Obtener todos los viajes",
+                "description": "Endpoint para obtener todos los viajes registrados",
+                "responses": {
+                    "200": {
+                        "description": "¡Todo salió bien!",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "docs": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object"
+                                    }
+                                },
+                                "totalDocs": {
+                                    "type": "number"
+                                },
+                                "limit": {
+                                    "type": "number"
+                                },
+                                "totalPages": {
+                                    "type": "number"
+                                },
+                                "page": {
+                                    "type": "number"
+                                },
+                                "pagingCounter": {
+                                    "type": "number"
+                                },
+                                "hasPrevPage": {
+                                    "type": "boolean"
+                                },
+                                "hasNextPage": {
+                                    "type": "boolean"
+                                },
+                                "prevPage": {
+                                    "type": "number"
+                                },
+                                "nextPage": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Principal"
+                ],
+                "summary": "Crear un nuevo viaje",
+                "description": "Endpoint para crear un nuevo viaje",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "trip",
+                        "description": "Objeto de nuevo viaje a crear",
+                        "required": true,
+                        "type": "object",
+                        "properties": {
+                            "start": {
+                                "type": "object",
+                                "properties": {
+                                    "date": {
+                                        "type": "object",
+                                        "properties": {
+                                            "$date": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "pickup_address": {
+                                        "type": "string"
+                                    },
+                                    "pickup_location": {
+                                        "type": "object",
+                                        "properties": {
+                                            "type": {
+                                                "type": "string"
+                                            },
+                                            "coordinates": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "number"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "end": {
+                                "type": "object",
+                                "properties": {
+                                    "date": {
+                                        "type": "object",
+                                        "properties": {
+                                            "$date": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "pickup_address": {
+                                        "type": "string"
+                                    },
+                                    "pickup_location": {
+                                        "type": "object",
+                                        "properties": {
+                                            "type": {
+                                                "type": "string"
+                                            },
+                                            "coordinates": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "number"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "country": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "city": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "passenger": {
+                                "type": "object",
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "driver": {
+                                "type": "object",
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "car": {
+                                "type": "object",
+                                "properties": {
+                                    "plate": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "status": {
+                                "type": "string"
+                            },
+                            "check_code": {
+                                "type": "string"
+                            },
+                            "createdAt": {
+                                "type": "object",
+                                "properties": {
+                                    "$date": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "updatedAt": {
+                                "type": "object",
+                                "properties": {
+                                    "$date": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "price": {
+                                "type": "number"
+                            },
+                            "driver_location": {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "coordinates": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "/trips/{id}": {
+            "put": {
+                "tags": [
+                    "Principal"
+                ],
+                "summary": "Editar un viaje",
+                "description": "Endpoint para editar un viaje",
+                "responses": {
+                    "200": {
+                        "description": "¡Todo salió bien!"
+                    },
+                    "500": {
+                        "description": "Error interno del servidor"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id del viaje a editar",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "trip",
+                        "description": "Objeto de propiedades a editar del viaje",
+                        "required": true,
+                        "type": "object",
+                        "properties": {
+                            "start": {
+                                "type": "object",
+                                "properties": {
+                                    "date": {
+                                        "type": "object",
+                                        "properties": {
+                                            "$date": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "pickup_address": {
+                                        "type": "string"
+                                    },
+                                    "pickup_location": {
+                                        "type": "object",
+                                        "properties": {
+                                            "type": {
+                                                "type": "string"
+                                            },
+                                            "coordinates": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "number"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "end": {
+                                "type": "object",
+                                "properties": {
+                                    "date": {
+                                        "type": "object",
+                                        "properties": {
+                                            "$date": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "pickup_address": {
+                                        "type": "string"
+                                    },
+                                    "pickup_location": {
+                                        "type": "object",
+                                        "properties": {
+                                            "type": {
+                                                "type": "string"
+                                            },
+                                            "coordinates": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "number"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "country": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "city": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "passenger": {
+                                "type": "object",
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "driver": {
+                                "type": "object",
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "car": {
+                                "type": "object",
+                                "properties": {
+                                    "plate": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "status": {
+                                "type": "string"
+                            },
+                            "check_code": {
+                                "type": "string"
+                            },
+                            "createdAt": {
+                                "type": "object",
+                                "properties": {
+                                    "$date": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "updatedAt": {
+                                "type": "object",
+                                "properties": {
+                                    "$date": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "price": {
+                                "type": "number"
+                            },
+                            "driver_location": {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "coordinates": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "/trips/total": {
+            "get": {
+                "tags": [
+                    "Principal"
+                ],
+                "summary": "Total de viajes",
+                "description": "Endpoint para obtener el total de viajes registrados",
+                "responses": {
+                    "200": {
+                        "description": "¡Todo salió bien!",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "cantidad": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error interno del servidor"
+                    }
+                }
+            }
+        },
+        "/trips/{city}": {
+            "get": {
+                "tags": [
+                    "Principal"
+                ],
+                "summary": "Total de viajes por ciudad",
+                "description": "Endpoint para obtener el total de viajes de cada ciudad registrada",
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "path",
+                        "description": "Ciudad por la cual se quiere consultar la cantidad de viajes",
+                        "required": true,
+                        "type": "string",
+                        "default": "Bogotá"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "¡Todo salió bien!",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "cantidad": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/trips/dynamic-rate": {
+            "post": {
+                "tags": [
+                    "Principal"
+                ],
+                "summary": "Tarifa dinámica",
+                "description": "Endpoint para obtener una tarifa dinámica en un punto de acuerdo a la cantidad de viajes y conductores en un radio de 5 kilómetros",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Latitud y longitud del punto a calcular tarifa dinámica",
+                        "required": true,
+                        "type": "object",
+                        "properties": {
+                            "lat": {
+                                "type": "number",
+                                "default": 4.6738366
+                            },
+                            "lng": {
+                                "type": "number",
+                                "default": -74.05205389999999
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "¡Todo salió bien!",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "dynamic_rate": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
