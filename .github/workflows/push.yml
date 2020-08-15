@@ -7,6 +7,9 @@ on:
       - bugfix/*
       - hotfix/*
 
+env:
+  NODE_ENV: dev
+
 jobs:
   merge:
     runs-on: ubuntu-latest

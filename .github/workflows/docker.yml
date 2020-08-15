@@ -1,0 +1,21 @@
+name: Build docker image
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  push_image:
+    name: Publicando imagen en Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Publicando en Docker Hub
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: ${{ secrets.DOCKER_USERNAME }}/api_miaguila
+          tag_with_ref: true
