@@ -19,6 +19,10 @@ export default class Database {
         this.conn = null;
     }
 
+    /**
+     * Devuelve una instancia de la base de datos en caso de existir sino una nueva
+     * @returns { Database } instancia
+     */
     public static getInstance(): Database {
         if (!Database.instance) {
             Database.instance = new Database();
