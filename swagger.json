@@ -41,6 +41,15 @@
                 ],
                 "summary": "Obtener todos los viajes",
                 "description": "Endpoint para obtener todos los viajes registrados",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "require": false,
+                        "description": "Paginación de los viajes",
+                        "type": "string"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "¡Todo salió bien!",
