@@ -7,6 +7,9 @@ on:
       - bugfix/*
       - hotfix/*
 
+env:
+  NODE_ENV: dev
+
 jobs:
   merge:
     runs-on: ubuntu-latest
@@ -27,12 +30,8 @@ jobs:
         mongo username: 'root'
         mongo password: 'example'
     - name: Corriendo seed para test
-      env:
-        NODE_ENV: dev
       run: npm run seed-test
     - name: Testeando Sintaxis Typescript
       uses: icrawl/action-tsc@v1
     - name: Corriendo tests
-      env:
-        NODE_ENV: dev
       run: npm run test
