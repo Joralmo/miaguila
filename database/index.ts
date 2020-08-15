@@ -1,17 +1,12 @@
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import path from 'path';
+import initConfig from '../config';
 
 export default class Database {
     private static instance: Database;
     public conn: any = null;
     private options: mongoose.ConnectionOptions;
     private constructor() {
-        if (process.env.NODE_ENV === 'dev') {
-            dotenv.config({ path: path.join(__dirname, '../env/env.dev') });
-        } else {
-            dotenv.config({ path: path.join(__dirname, '../env/env.prod') });
-        }
+        initConfig();
         this.options = {
             bufferCommands: false,
             bufferMaxEntries: 0,

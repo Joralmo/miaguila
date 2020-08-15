@@ -4,7 +4,7 @@
   "description": "Backend",
   "main": "app.ts",
   "scripts": {
-    "test": "mocha -r ts-node/register tests/test.ts --exit",
+    "test": "export PORT_TEST=3001 && mocha -r ts-node/register tests/test.ts --exit",
     "start": "ts-node app.ts",
     "start-watch": "nodemon --exec 'ts-node' app.ts",
     "seed": "ts-node ./seeders/tripsSeeder.ts",
