@@ -8,7 +8,8 @@
     "start": "ts-node app.ts",
     "start-watch": "nodemon --exec 'ts-node' app.ts",
     "seed": "ts-node ./seeders/tripsSeeder.ts",
-    "seed-test": "ts-node ./seeders/tripsSeederTest.ts"
+    "seed-test": "ts-node ./seeders/tripsSeederTest.ts",
+    "build": "tsc --project tsconfig.json"
   },
   "repository": {
     "type": "git",
