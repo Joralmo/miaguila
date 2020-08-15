@@ -4,6 +4,14 @@
 [![](https://img.shields.io/github/workflow/status/Joralmo/miaguila/Push?label=Test)](https://github.com/Joralmo/miaguila/actions?query=workflow%3APush)
 [![](https://img.shields.io/github/workflow/status/Joralmo/miaguila/Merge?label=Build)](https://github.com/Joralmo/miaguila/actions?query=workflow%3AMerge)
 
+# Correr el proyecto
+### Importante antes de correr el proyecto para desarrollo se debe definir ese environment
+#### Por consola:
+```bash
+export NODE_ENV=dev
+```
+### En caso de correr el proyecto con docker-compose se debe omitir el seteo del environment
+
 # Con docker-compose
 
 ```
@@ -109,15 +117,23 @@ npm run start
 }
 ```
 ---
-### **Documentación**
+### **DOCUMENTACIÓN**
 
-#### Una vez ejecutada la aplicación dirigirse a _http://localhost:3000/docs_ para ver la documentación
+### Una vez ejecutada la aplicación dirigirse a _http://localhost:3000/docs_ para ver la documentación
 
 ### **Test**
 
 ```bash
 npm run test
 ```
+#### 
+```bash
+docker exec -it api_miaguila npm run test
+```
+
 ## Nota Importante: para que los test funcionen de manera correcta se debe haber configurado en los archivos de environment la conexión a la base de datos y haber corrido el seed
+
+### **TROUBLESHOTING**
+### 1) _Uncaught Error: listen EADDRINUSE: address already in use :::3000_, En caso de este error revisar que el puerto configurado en el env no esté en uso, en ese caso configurar un puerto diferente, igualmente para test cambiar el puerto en caso de error en el comando _test_ del package.json
 
 Hecho con ❤️ por [JoralmoPro](http://bit.ly/portafolioJp)
