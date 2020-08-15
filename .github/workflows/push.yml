@@ -1,0 +1,34 @@
+name: Push
+
+on:
+  push:
+    branches:
+      - feature/*
+      - bugfix/*
+      - hotfix/*
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    name: Proceso de Push
+    steps:
+    - uses: actions/checkout@v1
+    - name: Instalando node v12
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    - name: Instalando Dependencias
+      run: npm install
+    - name: Corriendo mongo
+      uses: getong/mongo-action@v1.1
+      with:
+        mongo version: '4.2-bionic'
+        host port: 27017
+        mongo username: 'root'
+        mongo password: 'example'
+    - name: Corriendo seed para test
+      run: npm run seed-test
+    - name: Testeando Sintaxis Typescript
+      uses: icrawl/action-tsc@v1
+    - name: Corriendo tests
+      run: npm run test
