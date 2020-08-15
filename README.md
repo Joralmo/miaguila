@@ -1,6 +1,6 @@
 # Mi Águila
 
-[![](https://img.shields.io/github/workflow/status/Joralmo/miaguila/Build%20docker%20image/master?label=Docker%20Hub)](https://hub.docker.com/repository/docker/joralmopro/api_miaguila)
+[![](https://img.shields.io/github/workflow/status/Joralmo/miaguila/Build%20docker%20image/master?label=Docker%20Hub)](https://hub.docker.com/r/joralmopro/api_miaguila)
 [![](https://img.shields.io/github/workflow/status/Joralmo/miaguila/Push?label=Test)](https://github.com/Joralmo/miaguila/actions?query=workflow%3APush)
 # Con docker-compose
 
