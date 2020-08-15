@@ -23,3 +23,13 @@ jobs:
       run: npm install
     - name: Compilando código
       run: npm run build
+    - name: Verificando merge
+      uses: squalrus/merge-bot@v0.2.0
+      with:
+        GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        test: true
+        reviewers: true
+        labels: ready, merge
+        blocking-labels: do not merge
+        checks: true
+        method: squash
