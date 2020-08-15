@@ -33,4 +33,6 @@ jobs:
     - name: Testeando Sintaxis Typescript
       uses: icrawl/action-tsc@v1
     - name: Corriendo tests
+      env:
+        NODE_ENV: dev
       run: npm run test
