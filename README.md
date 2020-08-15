@@ -105,7 +105,7 @@ npm run start
 
 `End point:` _http://localhost:3000/trips/dynamic-rate_
 
-`Method:` **GET**
+`Method:` **POST**
 
 `Payload:` 
 ```json
