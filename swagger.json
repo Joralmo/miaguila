@@ -295,10 +295,121 @@
                         "required": true,
                         "type": "object",
                         "properties": {
-                            "start": {
-                                "type": "object",
+                            "trip": {
                                 "properties": {
-                                    "date": {
+                                    "start": {
+                                        "type": "object",
+                                        "properties": {
+                                            "date": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "$date": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "pickup_address": {
+                                                "type": "string"
+                                            },
+                                            "pickup_location": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "type": {
+                                                        "type": "string"
+                                                    },
+                                                    "coordinates": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "number"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "end": {
+                                        "type": "object",
+                                        "properties": {
+                                            "date": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "$date": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "pickup_address": {
+                                                "type": "string"
+                                            },
+                                            "pickup_location": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "type": {
+                                                        "type": "string"
+                                                    },
+                                                    "coordinates": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "number"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "country": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "city": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "passenger": {
+                                        "type": "object",
+                                        "properties": {
+                                            "first_name": {
+                                                "type": "string"
+                                            },
+                                            "last_name": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "driver": {
+                                        "type": "object",
+                                        "properties": {
+                                            "first_name": {
+                                                "type": "string"
+                                            },
+                                            "last_name": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "car": {
+                                        "type": "object",
+                                        "properties": {
+                                            "plate": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "status": {
+                                        "type": "string"
+                                    },
+                                    "check_code": {
+                                        "type": "string"
+                                    },
+                                    "createdAt": {
                                         "type": "object",
                                         "properties": {
                                             "$date": {
@@ -306,10 +417,18 @@
                                             }
                                         }
                                     },
-                                    "pickup_address": {
-                                        "type": "string"
+                                    "updatedAt": {
+                                        "type": "object",
+                                        "properties": {
+                                            "$date": {
+                                                "type": "string"
+                                            }
+                                        }
                                     },
-                                    "pickup_location": {
+                                    "price": {
+                                        "type": "number"
+                                    },
+                                    "driver_location": {
                                         "type": "object",
                                         "properties": {
                                             "type": {
@@ -321,121 +440,6 @@
                                                     "type": "number"
                                                 }
                                             }
-                                        }
-                                    }
-                                }
-                            },
-                            "end": {
-                                "type": "object",
-                                "properties": {
-                                    "date": {
-                                        "type": "object",
-                                        "properties": {
-                                            "$date": {
-                                                "type": "string"
-                                            }
-                                        }
-                                    },
-                                    "pickup_address": {
-                                        "type": "string"
-                                    },
-                                    "pickup_location": {
-                                        "type": "object",
-                                        "properties": {
-                                            "type": {
-                                                "type": "string"
-                                            },
-                                            "coordinates": {
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "number"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            "country": {
-                                "type": "object",
-                                "properties": {
-                                    "name": {
-                                        "type": "string"
-                                    }
-                                }
-                            },
-                            "city": {
-                                "type": "object",
-                                "properties": {
-                                    "name": {
-                                        "type": "string"
-                                    }
-                                }
-                            },
-                            "passenger": {
-                                "type": "object",
-                                "properties": {
-                                    "first_name": {
-                                        "type": "string"
-                                    },
-                                    "last_name": {
-                                        "type": "string"
-                                    }
-                                }
-                            },
-                            "driver": {
-                                "type": "object",
-                                "properties": {
-                                    "first_name": {
-                                        "type": "string"
-                                    },
-                                    "last_name": {
-                                        "type": "string"
-                                    }
-                                }
-                            },
-                            "car": {
-                                "type": "object",
-                                "properties": {
-                                    "plate": {
-                                        "type": "string"
-                                    }
-                                }
-                            },
-                            "status": {
-                                "type": "string"
-                            },
-                            "check_code": {
-                                "type": "string"
-                            },
-                            "createdAt": {
-                                "type": "object",
-                                "properties": {
-                                    "$date": {
-                                        "type": "string"
-                                    }
-                                }
-                            },
-                            "updatedAt": {
-                                "type": "object",
-                                "properties": {
-                                    "$date": {
-                                        "type": "string"
-                                    }
-                                }
-                            },
-                            "price": {
-                                "type": "number"
-                            },
-                            "driver_location": {
-                                "type": "object",
-                                "properties": {
-                                    "type": {
-                                        "type": "string"
-                                    },
-                                    "coordinates": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "number"
                                         }
                                     }
                                 }
