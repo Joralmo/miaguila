@@ -5,12 +5,6 @@
 [![](https://img.shields.io/github/workflow/status/Joralmo/miaguila/Merge?label=Build)](https://github.com/Joralmo/miaguila/actions?query=workflow%3AMerge)
 
 # Correr el proyecto
-### Importante antes de correr el proyecto para desarrollo se debe definir ese environment
-#### Por consola:
-```bash
-export NODE_ENV=dev
-```
-### En caso de correr el proyecto con docker-compose se debe omitir el seteo del environment
 
 # Con docker-compose
 
@@ -20,6 +14,12 @@ docker exec -it api_miaguila npm run seed
 ```
 
 # Sin Docker
+
+### Importante antes de correr el proyecto para desarrollo se debe definir ese environment
+#### Por consola:
+```bash
+export NODE_ENV=dev
+```
 
 ### mongo
 #### es necesario tener una instancia de mongo en local o remota, los datos de acceso se deben configurar en _./env/dev_ Ó _./env/prod_ para cada caso 
@@ -120,6 +120,12 @@ npm run start
 ### **DOCUMENTACIÓN**
 
 ### Una vez ejecutada la aplicación dirigirse a _http://localhost:3000/docs_ para ver la documentación
+
+### **BUILD**
+
+```bash
+npm run build
+```
 
 ### **Test**
 
