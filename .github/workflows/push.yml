@@ -26,6 +26,8 @@ jobs:
         host port: 27017
         mongo username: 'root'
         mongo password: 'example'
+    - name: Configurando entorno
+      run: export NODE_ENV=dev
     - name: Corriendo seed para test
       run: npm run seed-test
     - name: Testeando Sintaxis Typescript
