@@ -2,6 +2,8 @@
 
 [![](https://img.shields.io/github/workflow/status/Joralmo/miaguila/Build%20docker%20image/master?label=Docker%20Hub)](https://hub.docker.com/r/joralmopro/api_miaguila)
 [![](https://img.shields.io/github/workflow/status/Joralmo/miaguila/Push?label=Test)](https://github.com/Joralmo/miaguila/actions?query=workflow%3APush)
+[![](https://img.shields.io/github/workflow/status/Joralmo/miaguila/Merge?label=Build)](https://github.com/Joralmo/miaguila/actions?query=workflow%3AMerge)
+
 # Con docker-compose
 
 ```
