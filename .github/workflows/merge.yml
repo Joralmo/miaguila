@@ -13,11 +13,6 @@ on:
     types:
       - dismissed
       - submitted
-  push:
-    branches:
-      - feature/*
-      - bugfix/*
-      - hotfix/*
 
 jobs:
   merge:
@@ -31,16 +26,5 @@ jobs:
         node-version: 12
     - name: Instalando Dependencias
       run: npm install
-    - name: Corriendo mongo
-      uses: getong/mongo-action@v1.1
-      with:
-        mongo version: '4.2-bionic'
-        host port: 27017
-        mongo username: 'root'
-        mongo password: 'example'
-    - name: Corriendo seed para test
-      run: npm run seed-test
-    - name: Testeando Sintaxis Typescript
-      uses: icrawl/action-tsc@v1
-    - name: Corriendo tests
-      run: npm run test
+    - name: Compilando código
+      run: npm run build
