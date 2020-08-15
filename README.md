@@ -126,6 +126,7 @@ npm run start
 ```bash
 npm run build
 ```
+#### Luego de ejecutado el build copiar la carpeta env dentro de la carpeta build. 
 
 ### **Test**
 
