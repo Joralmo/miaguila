@@ -1,5 +1,6 @@
 import express, { Application } from 'express';
 import cors from 'cors';
+import initConfig from '../config';
 
 export default class Server {
     private static _instance: Server;
@@ -8,8 +9,9 @@ export default class Server {
     public port: number;
 
     constructor() {
+        initConfig();
         this.app = express();
-        this.port = 3000;
+        this.port = Number(process.env.PORT_TEST) || Number(process.env.APP_PORT);
         this.app.use(cors());
         this.app.use(express.json());
     }
