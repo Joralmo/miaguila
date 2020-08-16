@@ -2,6 +2,14 @@ import TripModel from './../models/trip';
 import { Request, Response } from 'express';
 import Pagination from './../interfaces/pagination';
 export default class TripController {
+    private static _instance: TripController;
+
+    private constructor() {}
+
+    public static get instance() {
+        return this._instance || (this._instance = new TripController());
+    }
+
     /**
      * Consulta en la base de datos la cantidad de viajes
      * @param req Request express

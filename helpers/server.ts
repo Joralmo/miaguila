@@ -8,7 +8,7 @@ export default class Server {
     public app: Application;
     public port: number;
 
-    constructor() {
+    private constructor() {
         initConfig();
         this.app = express();
         this.port = Number(process.env.PORT_TEST) || Number(process.env.APP_PORT);
