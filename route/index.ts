@@ -2,7 +2,7 @@ import { Router } from 'express';
 import TripController from './../controllers/TripController';
 
 const router = Router();
-const tripController = new TripController();
+const tripController = TripController.instance;
 
 router.get('/total', tripController.totalTrips);
 router.get('/:city', tripController.totalTripsByCity);

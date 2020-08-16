@@ -5,7 +5,7 @@ import swaggerUi from 'swagger-ui-express';
 import * as options from './swagger.json';
 import router from './route';
 
-const server = new Server();
+const server = Server.instance;
 
 const { app } = server;
 
