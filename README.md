@@ -128,7 +128,7 @@ npm run build
 ```
 #### Luego de ejecutado el build copiar la carpeta env dentro de la carpeta build. 
 
-### **Test**
+### **TEST**
 
 ```bash
 npm run test
@@ -139,6 +139,9 @@ docker exec -it api_miaguila npm run test
 ```
 
 ## Nota Importante: para que los test funcionen de manera correcta se debe haber configurado en los archivos de environment la conexión a la base de datos y haber corrido el seed
+
+### **DIAGRAMA**
+[![](./diagrama.png)](Diagrama)
 
 ### **TROUBLESHOTING**
 ### 1) _Uncaught Error: listen EADDRINUSE: address already in use :::3000_, En caso de este error revisar que el puerto configurado en el env no esté en uso, en ese caso configurar un puerto diferente, igualmente para test cambiar el puerto en caso de error en el comando _test_ del package.json
